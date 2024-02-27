@@ -1,0 +1,228 @@
+&#009;			Tabulator
+&#010;			Zeilenvorschub
+&#013;			Eingabetaste
+&#032;			Leertaste
+&#033;			Ausrufezeichen
+&#034;		&quot;	Anf¸hrungszeichen
+&#035;			Doppelkreuz
+&#036;			Dollar
+&#037;			Prozent
+&#038;		&amp;	UND-Zeichen
+&#039;			Apostroph
+&#040;			runde ˆffnende Klammer
+&#041;			runde schlieﬂende Klammer
+&#042;			Stern
+&#043;			Plus
+&#044;			Komma
+&#045;			Minus
+&#046;			Punkt
+&#047;			Schr‰gstrich
+&#048;			Ziffer 0
+&#049;			Ziffer 1
+&#050;			Ziffer 2
+&#051;			Ziffer 3
+&#052;			Ziffer 4
+&#053;			Ziffer 5
+&#054;			Ziffer 6
+&#055;			Ziffer 7
+&#056;			Ziffer 8
+&#057;			Ziffer 9
+&#058;			Doppelpunkt
+&#059;			Semikolon
+&#060;			Kleiner
+&#061;			Gleich
+&#062;			Grˆﬂer
+&#063;			Fragezeichen
+&#064;			At-Zeichen
+&#065;			
+&#066;			
+&#056;			
+&#068;			
+&#069;			
+&#070;			
+&#071;			
+&#072;			
+&#073;			
+&#074;			
+&#075;			
+&#076;			
+&#077;			
+&#078;			
+&#079;			
+&#080;			
+&#081;			
+&#082;			
+&#083;			
+&#084;			
+&#085;			
+&#086;			
+&#087;			
+&#088;			
+&#089;			
+&#090;			
+&#091;			eckige Klammer auf
+&#092;			Backslash
+&#093;			eckige Klammer zu
+&#094;			Potenz
+&#095;			Unterstrich
+&#096;			Akzent
+&#097;			
+&#098;			
+&#099;			
+&#100;			
+&#101;			
+&#102;			
+&#103;			
+&#104;			
+&#105;			
+&#106;			
+&#107;			
+&#108;			
+&#109;			
+&#110;			
+&#111;			
+&#112;			
+&#113;			
+&#114;			
+&#115;			
+&#116;			
+&#117;			
+&#118;			
+&#119;			
+&#120;			
+&#121;			
+&#122;			
+&#123;			geschweifte Klammer auf
+&#124;			senkrechter Strich
+&#125;			geschweifte Klammer zu
+&#126;			Tilde
+&#127;		
+&#128;	x{20AC}		
+&#129;	x{FFFD}		
+&#130;			Komma
+&#131;	x{0192}		Florin
+&#132;	x{201E}		Anf¸hrung rechts
+&#133;	x{2026}		Ellipsis
+&#134;	x{2020}		Dagger
+&#135;	x{2021}		Doppel-Dagger
+&#136;	x{02C6}		Zirkumflex
+&#137;	x{2030}		Promille
+&#138;	x{0160}		
+&#139;	x{2039}		Kleiner
+&#140;	x{0152}		groﬂes OE
+&#141;	x{FFFD}		
+&#142;	x{017D}		
+&#143;	x{FFFD}		
+&#144;	x{FFFD}		
+&#145;	x{2018}		einz. Anf¸hrung links
+&#146;	x{2019}		einz. Anf¸hrung rechts
+&#147;	x{201C}		Anf¸hrung links
+&#148;	x{201D}		Anf¸hrung rechts
+&#149;	x{2022}		Bullet
+&#150;	x{2013}		Em-Gedankenstrich
+&#151;	x{2014}		En-Gedankenstrich
+&#152;	x{02DC}		Tilde
+&#153;	x{2122}		Trademark
+&#154;	x{0161}		
+&#155;	x{203A}		Grˆﬂer
+&#156;	x{0153}		kleines OE
+&#157;	x{FFFD}		
+&#158;	x{017E}		
+&#159;	x{0178}		groﬂer Y-Umlaut
+&#160;		&nbsp;	spezielles Leerzeichen
+&#161;			umgekehrtes Ausrufezeichen
+&#162;		&cent;	Cent
+&#163;		&pound;	Pfund
+&#164;		&curren;	W‰hrung
+&#165;		&yen;	Yen
+&#166;		&brvbar;	unterbrochener senkrechter Strich
+&#167;		&sect;	Paragraph
+&#168;		&uml;	Umlautpunkte
+&#169;		&copy;	Copyright
+&#170;		&ordf;	weibliches Ordinal
+&#171;		&laquo;	franz. Anf¸hrung links
+&#172;		&not;	Nicht
+&#173;		&shy;	leichter Gedankenstrich
+&#174;		&reg;	registriertes Trademark
+&#175;		&macr;	Makrone
+&#176;		&deg;	Grad
+&#177;		&plusmn;	Plusminus
+&#178;		&sup2;	hochgestellte 2
+&#179;		&sup3;	hochgestellte 3
+&#180;		&acute;	kleines a mit Akzent
+&#181;		&micro;	My
+&#182;		&para;	Paragraph
+&#183;		&middot;	mittlerer Punkt
+&#184;		&cedil;	Cedilla
+&#185;		&sup1;	hochgestellte 1
+&#186;		&ordm;	m‰nnliches Ordinal
+&#187;		&raquo;	franz. Anf¸hrung rechts
+&#188;		&frac14;	Bruch 1/4
+&#189;		&frac12;	Bruch 1/2
+&#190;		&frac34;	Bruch 3/4
+&#191;		&iquest;	umgekehrtes Fragezeichen
+&#192;		&Agrave;	groﬂes A mit Akzent
+&#193;		&Aacute;	groﬂes A mit Akzent
+&#194;		&Acirc;	groﬂes A mit Zirkumsflex
+&#195;		&Atilde;	groﬂes A mit Tilde
+&#196;		&Auml;	groﬂer A-Umlaut
+&#197;		&Aring;	groﬂes A mit Ring
+&#198;		&AElig;	groﬂes AE
+&#199;		&Ccedil;	groﬂes C Cedil
+&#200;		&Egrave;	groﬂes E mit Akzent
+&#201;		&Eacute;	groﬂes E mit Akzent
+&#202;		&Ecirc;	groﬂes E mit Zirkumsflex
+&#203;		&Euml;	groﬂer E-Umlaut
+&#204;		&Igrave;	groﬂes I mit Akzent
+&#205;		&Iacute;	groﬂes I mit Akzent
+&#206;		&Icirc;	groﬂes I mit Zirkumsflex
+&#207;		&Iuml;	groﬂer I-Umlaut
+&#208;		&ETH;	groﬂes Eth
+&#209;		&Ntilde;	groﬂes N mit Tilde
+&#210;		&Ograve;	groﬂes O mit Akzent
+&#211;		&Oacute;	groﬂes O mit Akzent
+&#212;		&Ocirc;	groﬂes O mit Zirkumsflex
+&#213;		&Otilde;	groﬂes O mit Tilde
+&#214;		&Ouml;	groﬂer O-Umlaut
+&#215;		&times;	Multiplizierzeichen
+&#216;		&Oslash;	groﬂes O mit Strich
+&#217;		&Ugrave;	groﬂes U mit Akzent
+&#218;		&Uacute;	groﬂes U mit Akzent
+&#219;		&Ucirc;	groﬂes U mit Zirkumsflex
+&#220;		&Uuml;	groﬂer U-Umlaut
+&#221;		&Yacute;	groﬂes Y mit Akzent
+&#222;		&THORN;	groﬂes Thorn
+&#223;		&szlig;	scharfes ﬂ
+&#224;		&agrave;	kleines a mit Akzent
+&#225;		&aacute;	kleines a mit Akzent
+&#226;		&acirc;	kleines a mit Zirkumsflex
+&#227;		&atilde;	kleines a mit Tilde
+&#228;		&auml;	kleiner a-Umlaut
+&#229;		&aring;	kleines a mit Ring
+&#230;		&aelig;	kleines ae
+&#231;		&ccedil;	kleines c-Cedil
+&#232;		&egrave;	kleines e mit Akzent
+&#233;		&eacute;	kleines e mit Akzent
+&#234;		&ecirc;	kleines e mit Zirkumsflex
+&#235;		&euml;	kleiner e-Umlaut
+&#236;		&igrave;	kleines i mit Akzent
+&#237;		&iacute;	kleines i mit Akzent
+&#238;		&icirc;	kleines i mit Zirkumsflex
+&#239;		&iuml;	kleines i-Umlaut
+&#240;		&eth;	kleines eth
+&#241;		&ntilde;	kleines n mit Tilde
+&#242;		&ograve;	kleines o mit Akzent
+&#243;		&oacute;	kleines o mit Akzent
+&#244;		&ocirc;	kleines i mit Zirkumsflex
+&#245;		&otilde;	kleines o mit Tilde
+&#246;		&ouml;	kleiner o-Umlaut
+&#247;		&divide;	Divisionszeichen
+&#248;		&oslash;	kleines o mit Strich
+&#249;		&ugrave;	kleines u mit Akzent
+&#250;		&uacute;	kleines u mit Akzent
+&#251;		&ucirc;	kleines u mit Zirkumsflex
+&#252;		&uuml;	kleiner u-Umlaut
+&#253;		&yacute;	kleines y mit Akzent
+&#254;		&thorn;	kleines Thorn
+&#255;		&yuml;	kleiner y-Umlaut
+&#8364;		&euro;	Euro-Zeichen

@@ -1,0 +1,27 @@
+<a
+<p
+<br
+<td
+<ul
+<ol
+<li
+<img
+<table
+<tr
+
+
+
+	// hypertext features 
+	public int nrOfPs;
+	public int nrOfBRs;
+	public int nrOfTDs;
+	public int nrOfHrefs_ANCHOR_LINK;
+	public int nrOfHrefs_DOMAIN_LINK;
+	public int nrOfHrefs_INTERNET_LINK;
+	public int nrOfHrefs_JAVASCRIPT_LINK;
+	public int nrOfHrefs_MAILTO_LINK;
+	public int nrOfHrefs_OTHER_LINKfalse;
+	public int nrOfUls;
+	public int nrOfOls;
+	public int nrOfLis;
+	public int nrOfImgs;
