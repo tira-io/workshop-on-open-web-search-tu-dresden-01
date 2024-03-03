@@ -2,6 +2,29 @@
 This code is the basis to develop a genre classifier for web pages. 
 It provides a [download script](data/prepare_dataset.sh) for the dataset and two sample classifiers to be used as baselines.
 
+## Run the Genre Classifier
+
+In the end, the classifier has to work in the following script:
+
+```
+python3 genre-classifier-snorkel/src/snorkel_genre_classifier.py
+```
+
+This produces an output like (output via zcat documents.jsonl.gz`):
+
+```
+{"docno":"doc-1","label":"Abstain"}
+{"docno":"doc-2","label":"Abstain"}
+```
+
+This is intended to run on arbitrary content from ir_datasets, e.g., you can pass an arbitrary dataset id from ir_datasets.com for --input. e.g., for the cranfield collection:
+
+```
+python3 genre-classifier-snorkel/src/snorkel_genre_classifier.py --input cranfield
+```
+
+
+
 ## Preparation
 ### Dataset
 The dataset can be downloaded from [Zenodo](https://zenodo.org/records/3233881). 

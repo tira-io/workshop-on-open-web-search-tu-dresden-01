@@ -1,0 +1,14 @@
+#docker build -t webis/wows-2024-baseline:0.0.1-snorkel -f Dockerfile.dev .
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+
+ADD requirements.txt /requirements.txt
+
+RUN pip3 install -r /requirements.txt \
+	&& rm -Rf /var/cache/apt \
+	&& rm -Rf /requirements.txt \
+	&& rm -Rf /root/.cache/pip
+
+RUN pip3 install --no-dependencies ir_datasets \
+	&& apt-get update \
+	&& apt-get install -y git
+

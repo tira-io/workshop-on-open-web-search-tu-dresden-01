@@ -1,0 +1,12 @@
+joblib
+numpy
+pandas
+pathlib
+resiliparse
+scikit-learn
+spacy
+snorkel
+tqdm
+pytest
+approvaltests
+tira
