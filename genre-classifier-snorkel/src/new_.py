@@ -8,10 +8,8 @@ def get_tokens_info(doc):
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(doc)
     tokens = []
-    for i in range(len(doc)):
-        tokens.append((doc[i].text, doc[i].pos_, doc[i].tag_, doc[i].is_alpha, doc[i].is_stop, 
-                       doc.ents[i].label_))
-    print(tokens)
+    for token in doc:
+        tokens.append((token.lemma_, token.pos_, token.tag_, token.is_alpha, token.is_stop))
     return [t for t in tokens if not t[4]]
 
 def normalise_wordlists(word_list):
