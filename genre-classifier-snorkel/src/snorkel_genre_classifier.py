@@ -39,6 +39,12 @@ def get_tokens_types(doc):
         tokens.append((token.text, token.pos_, token.tag_, token.is_alpha, token.is_stop))
     return [t for t in tokens if not t[4]]
 
+def tokens_with_count(tokens):
+    tokens_with_count = dict()
+    for token in tokens:
+        tokens_with_count[token] = tokens.count(token)
+    return tokens_with_count
+
 # TODO ADD more and reasonable labeling functions
 # Tutorial: https://www.snorkel.org/get-started/
 
@@ -85,3 +91,4 @@ if __name__ == '__main__':
     # process the documents, store results at expected location.
     processed_documents = process_documents(dataset.docs_iter())
     processed_documents.to_json(output_file, lines=True, orient='records')
+    
