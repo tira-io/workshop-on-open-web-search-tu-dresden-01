@@ -7,6 +7,7 @@ from snorkel.labeling import LabelingFunction, PandasLFApplier, LFAnalysis
 from snorkel.labeling.model import MajorityLabelVoter
 import numpy as np
 import spacy
+from collections import Counter
 
 
 # Constants for the labels, TODO, this is only an example, replace with the correct labels
@@ -40,9 +41,7 @@ def get_tokens_types(doc):
     return [t for t in tokens if not t[4]]
 
 def tokens_with_count(tokens):
-    tokens_with_count = dict()
-    for token in tokens:
-        tokens_with_count[token] = tokens.count(token)
+    tokens_with_count = Counter(tokens)
     return tokens_with_count
 
 # TODO ADD more and reasonable labeling functions
