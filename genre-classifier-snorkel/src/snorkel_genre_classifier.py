@@ -10,27 +10,23 @@ import spacy
 from collections import Counter
 
 
-# Constants for the labels, TODO, this is only an example, replace with the correct labels
+# Constants for the labels
 ABSTAIN = -1
 DISCUSSION = 0
 SHOP = 1
 SCHOLAR = 2
-# TODO: add remaining labels
+DOWNLOAD = 3
+ARTICLES = 4
+HELP = 5
+LINKLISTS = 6
+PORTRAIT_PRIV = 7
+PROTAIT_NPRIV = 8
 
-# Constants for the labels, TODO, this is only an example, replace with the correct labels
-label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTAIN: 'Abstain'}
-
-def lf_text_contains_discussion_term(doc):
-    # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
-    if 'discussion' in doc['text'] or 'discuss' in doc['text']:
-        return DISCUSSION
-    return ABSTAIN
-
-def lf_text_contains_shop_term(doc):
-    # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
-    if 'quantity' in doc['text'] or 'buy' in doc['text']:
-        return SHOP
-    return ABSTAIN
+# Constants for the labels
+label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
+                HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
+label_words = {DISCUSSION: [], SHOP: [], SCHOLAR: [], DOWNLOAD : [], ARTICLES : [],
+                HELP : [], LINKLISTS : [], PORTRAIT_PRIV : [], PROTAIT_NPRIV : []}
 
 def get_tokens_types(doc):
     nlp = spacy.load("en_core_web_sm")
@@ -43,6 +39,18 @@ def get_tokens_types(doc):
 def tokens_with_count(tokens):
     tokens_with_count = Counter(tokens)
     return tokens_with_count
+
+def lf_text_contains_discussion_term(doc):
+    # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
+    if 'discussion' in doc['text'] or 'discuss' in doc['text']:
+        return DISCUSSION
+    return ABSTAIN
+
+def lf_text_contains_shop_term(doc):
+    # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
+    if 'quantity' in doc['text'] or 'buy' in doc['text']:
+        return SHOP
+    return ABSTAIN
 
 # TODO ADD more and reasonable labeling functions
 # Tutorial: https://www.snorkel.org/get-started/
