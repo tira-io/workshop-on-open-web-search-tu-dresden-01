@@ -20,13 +20,13 @@ label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTA
 
 def lf_text_contains_discussion_term(doc):
     # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
-    if 'discussion' in doc['text']:
+    if 'discussion' in doc['text'] or 'discuss' in doc['text']:
         return DISCUSSION
     return ABSTAIN
 
 def lf_text_contains_shop_term(doc):
     # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
-    if 'quantity' in doc['text']:
+    if 'quantity' in doc['text'] or 'buy' in doc['text']:
         return SHOP
     return ABSTAIN
 

@@ -24,3 +24,9 @@ class SnorkelTest(unittest.TestCase):
         actual = process_documents(document_iter)
 
         verify_as_json([i.to_dict() for _, i in actual.iterrows()])
+
+    def test_with_dummy_documents_02(self):
+        document_iter = [doc(1, 'I want to discuss with you'), doc(2, 'buy your playstation here.')]
+        actual = process_documents(document_iter)
+
+        verify_as_json([i.to_dict() for _, i in actual.iterrows()])
