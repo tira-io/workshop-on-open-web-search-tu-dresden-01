@@ -18,7 +18,17 @@ def normalise_wordlists(word_list):
     for w in word_list:
         stem_list.append(ps(w))
 
-
+# possible solution 
+# from test dataset zenodo create vocaluary lists for each lable 
+# check is the key words in the document contained in any vocabulary 
+# can also use the similarity from spacy doc1.similarity(doc2)
+        
+# todo
+def create_voc(lable):
+    pass
+# todo
+def check_similarity():
+    pass
         
 
 
