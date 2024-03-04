@@ -6,6 +6,7 @@ import pandas as pd
 from snorkel.labeling import LabelingFunction, PandasLFApplier, LFAnalysis
 from snorkel.labeling.model import MajorityLabelVoter
 import numpy as np
+import spacy
 
 
 # Constants for the labels, TODO, this is only an example, replace with the correct labels
@@ -29,6 +30,14 @@ def lf_text_contains_shop_term(doc):
     if 'quantity' in doc['text'] or 'buy' in doc['text']:
         return SHOP
     return ABSTAIN
+
+def get_tokens_types(doc):
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(doc)
+    tokens = []
+    for token in doc:
+        tokens.append((token.text, token.pos_, token.tag_, token.is_alpha, token.is_stop))
+    return [t for t in tokens if not t[4]]
 
 # TODO ADD more and reasonable labeling functions
 # Tutorial: https://www.snorkel.org/get-started/
