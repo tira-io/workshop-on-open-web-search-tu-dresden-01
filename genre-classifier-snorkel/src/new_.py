@@ -55,7 +55,7 @@ def parse_args():
     
     return parser.parse_args()
 
-def token_in_labels_number(labels, token):
+def num_token_in_labels(labels, token):
     num_token_total = 0
     for label in labels:
         num_token_total += label[token]
