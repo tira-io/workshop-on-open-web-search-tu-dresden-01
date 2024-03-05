@@ -2,13 +2,6 @@ from load_data import load_plain_text_dfs
 import spacy
 from collections import Counter
 
-def get_tf_idf(label):
-    pass
-
-def get_tf(term, label):
-    tf = 0
-    for doc in label:
-        pass
 
 def get_df(term, labels):
     df = 0
