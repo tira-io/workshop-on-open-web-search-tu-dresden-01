@@ -42,7 +42,7 @@ def parse_doc(doc):
     return new_
 
 def get_intersection_count(doc, label):
-    intetsection = 0
+    intersection = 0
     for token in doc:
         if token in label:
             intetsection += doc[token]
@@ -54,6 +54,12 @@ def parse_args():
     parser.add_argument('--input', type=str, default='workshop-on-open-web-search/document-processing-20231027-training', help='Dataset id from ir_datasets/TIRA to process.')
     
     return parser.parse_args()
+
+def num_token_in_labels(labels, token):
+    num_token_total = 0
+    for label in labels:
+        num_token_total += label[token]
+    return num_token_total
 
 
 if __name__ == '__main__':
