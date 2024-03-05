@@ -55,6 +55,12 @@ def parse_args():
     
     return parser.parse_args()
 
+def token_in_labels_number(labels, token):
+    num_token_total = 0
+    for label in labels:
+        num_token_total += label[token]
+    return num_token_total
+
 
 if __name__ == '__main__':
     dataset = ir_datasets.load(parse_args().input)
