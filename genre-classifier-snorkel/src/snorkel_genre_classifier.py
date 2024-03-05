@@ -12,15 +12,15 @@ from collections import Counter
 
 # Constants for the labels
 ABSTAIN = -1
-DISCUSSION = 0
-SHOP = 1
-SCHOLAR = 2
-DOWNLOAD = 3
-ARTICLES = 4
-HELP = 5
-LINKLISTS = 6
-PORTRAIT_PRIV = 7
-PROTAIT_NPRIV = 8
+ARTICLES = 0
+DISCUSSION = 1
+DOWNLOAD = 2
+HELP = 3
+LINKLISTS = 4
+PROTAIT_NPRIV = 5
+PORTRAIT_PRIV = 6
+SHOP = 7
+SCHOLAR = 8
 
 # Constants for the labels
 label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
@@ -33,7 +33,7 @@ def get_tokens_types(doc):
     doc = nlp(doc)
     tokens = []
     for token in doc:
-        tokens.append((token.text, token.pos_, token.tag_, token.is_alpha, token.is_stop))
+        tokens.append((token.text.lower(), token.pos_, token.tag_, token.is_alpha, token.is_stop))
     return [t for t in tokens if not t[4]]
 
 def tokens_with_count(tokens):
