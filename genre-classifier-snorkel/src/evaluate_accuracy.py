@@ -6,7 +6,7 @@ from load_data import load_plain_text_dfs
 from utils import lemmatize_text
 from snorkel_genre_classifier import ABSTAIN, DISCUSSION, SHOP, SCHOLAR, DOWNLOAD, ARTICLES, HELP, LINKLISTS, PORTRAIT_PRIV, PROTAIT_NPRIV
 
-from test_functions import classifier_based_on_most_frequent_terms, classifier_based_on_most_frequent_terms_with_threshold
+from genre_classification_rules import classifier_based_on_most_frequent_terms, classifier_based_on_most_frequent_terms_with_threshold
 
 def run(language = "english"):
     _, df_test = load_plain_text_dfs(language=language)

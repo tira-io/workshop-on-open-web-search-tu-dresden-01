@@ -2,8 +2,25 @@ from collections import Counter
 import process_labels
 import spacy
 import util
-from snorkel_genre_classifier import ABSTAIN, ARTICLES, DOWNLOAD, DISCUSSION, SHOP, PORTRAIT_PRIV, PROTAIT_NPRIV, LINKLISTS
+
 nlp = spacy.load("en_core_web_sm")
+
+# Constants for the labels
+ABSTAIN = -1
+ARTICLES = 0
+DISCUSSION = 1
+DOWNLOAD = 2
+HELP = 3
+LINKLISTS = 4
+PROTAIT_NPRIV = 5
+PORTRAIT_PRIV = 6
+SHOP = 7
+
+# Constants for the labels
+label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
+                HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
+
+
 
 def tokens_with_count(tokens):
     tokens_with_count = Counter(tokens)

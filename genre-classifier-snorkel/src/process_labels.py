@@ -12,6 +12,8 @@ def parse_doc(doc, nlp):
     return new_
 
 def get_tokens_info(doc, nlp):
+    if type(doc) != str:
+        doc = doc.text
     doc = nlp(doc)
     tokens = []
     for token in doc:

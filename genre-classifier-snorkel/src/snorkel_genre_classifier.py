@@ -6,46 +6,13 @@ import pandas as pd
 from snorkel.labeling import LabelingFunction, PandasLFApplier, LFAnalysis
 from snorkel.labeling.model import MajorityLabelVoter
 from nltk.stem import PorterStemmer 
+from genre_classification_rules import classifier_based_on_most_frequent_terms, classifier_based_on_most_frequent_terms_with_threshold, label_names
 
 
-# Constants for the labels
-ABSTAIN = -1
-ARTICLES = 0
-DISCUSSION = 1
-DOWNLOAD = 2
-HELP = 3
-LINKLISTS = 4
-PROTAIT_NPRIV = 5
-PORTRAIT_PRIV = 6
-SHOP = 7
 
-
-# Constants for the labels
-label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
-                HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
-
-directory = "/workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/resources/vocabulary/"
-ps = PorterStemmer()
-
-
-def lf_text_contains_discussion_term(doc):
-    # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
-    if 'discussion' in doc['text'] or 'discuss' in doc['text']:
-        return DISCUSSION
-    return ABSTAIN
-
-def lf_text_contains_shop_term(doc):
-    # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
-    if 'quantity' in doc['text'] or 'buy' in doc['text']:
-        return SHOP
-    return ABSTAIN
-
-# TODO ADD more and reasonable labeling functions
-# Tutorial: https://www.snorkel.org/get-started/
 
 def get_snorkel_pandas_lf_applier():
-    lfs = [lf_text_contains_discussion_term, lf_text_contains_shop_term,
-           # TODO, more labeling functions
+    lfs = [classifier_based_on_most_frequent_terms, classifier_based_on_most_frequent_terms_with_threshold,
           ]
 
     return PandasLFApplier(lfs=[LabelingFunction(name=func.__name__, f=func) for func in lfs])
