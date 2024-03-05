@@ -47,13 +47,34 @@ def get_tf_for_labels(df, nlp):
             terms = {i: e.get(i, 0) + terms.get(i, 0) for i in set(terms).union(set(e))}
         label_terms[l_id] = terms
     return label_terms
-    
+
+def get_term_dict(df, nlp):
+    labels_ids = set(df['label'])
+    term_dict = {}
+    for l_id in labels_ids:
+        docs = df.loc[df['label'] == l_id]
+        my_list = []
+        for i in range(len(docs)):
+            doc = docs.iloc[i]
+            dict = parse_doc(doc["plain_text"], nlp)
+            my_list.append({k : [dict[k], 1] for k in dict})
+        for e in my_list:
+            for k in e:
+                if k in term_dict:
+                    term_dict[k] = [x+y for x,y in zip(term_dict[k], e[k])]
+                else:
+                    term_dict[k] = e[k]
+    return term_dict
+
 
 def run():
     df_train, _ = load_plain_text_dfs(language="english")
     nlp = spacy.load("en_core_web_lg")
-    #print(get_tf_for_labels(df_train, nlp))
+    # print(get_tf_for_labels(df_train, nlp))
     # todo call get_tf_for_labels to create the tf values for each class
+    labels_terms = get_tf_for_labels(df_train, nlp)
+    terms = get_term_dict(df_train, nlp)
+
     
 
 
