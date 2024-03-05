@@ -48,7 +48,7 @@ def lf_text_contains_shop_term(doc):
 # Tutorial: https://www.snorkel.org/get-started/
 
 def get_snorkel_pandas_lf_applier():
-    lfs = [lf_text_contains_discussion_terms, lf_text_contains_shop_terms,
+    lfs = [lf_text_contains_discussion_term, lf_text_contains_shop_term,
            # TODO, more labeling functions
           ]
 
