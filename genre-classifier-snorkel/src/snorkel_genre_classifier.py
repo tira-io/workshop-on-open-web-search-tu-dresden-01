@@ -5,10 +5,6 @@ from pathlib import Path
 import pandas as pd
 from snorkel.labeling import LabelingFunction, PandasLFApplier, LFAnalysis
 from snorkel.labeling.model import MajorityLabelVoter
-import numpy as np
-import spacy
-from collections import Counter
-import pathlib
 from nltk.stem import PorterStemmer 
 
 
@@ -22,13 +18,11 @@ LINKLISTS = 4
 PROTAIT_NPRIV = 5
 PORTRAIT_PRIV = 6
 SHOP = 7
-SCHOLAR = 8
+
 
 # Constants for the labels
-label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
+label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
                 HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
-label_words = {DISCUSSION: [], SHOP: [], SCHOLAR: [], DOWNLOAD : [], ARTICLES : [],
-                HELP : [], LINKLISTS : [], PORTRAIT_PRIV : [], PROTAIT_NPRIV : []}
 
 directory = "/workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/resources/vocabulary/"
 ps = PorterStemmer()

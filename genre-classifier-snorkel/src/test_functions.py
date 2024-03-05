@@ -1,4 +1,3 @@
-import numpy as np
 from collections import Counter
 import process_labels
 import spacy
@@ -55,8 +54,6 @@ def classifier_based_on_most_frequent_terms(doc, num = 100):
         return ABSTAIN
 
 
-# additional rules:
-    # 
 
 def classifier_based_on_most_frequent_terms_with_threshold(doc, num = 100, offset=5):
     most_frequent_terms = " ".join(get_most_frequent_terms(doc, num))

@@ -34,13 +34,6 @@ def run(language = "english"):
 
 
 def _apply_classifier(df_test, text_col: str = "plain_text", language: str = "english"):
-#    vectorizer = load(CLASSIFIER_PATH / f"vectorizer_{text_col}_{language}.joblib")
-#    nb_classifier = load(CLASSIFIER_PATH / f"nb_clf_{text_col}_{language}.joblib")
-
-#    X_test = vectorizer.transform(df_test[text_col])
-#    probs = nb_classifier.predict_proba(X_test)
-#    df_test[f"prediction_{text_col}"] = np.argmax(probs, axis=1)
-#    return df_test
     prediction_list = []
     for data_text in tqdm(list(df_test[text_col])):
         prediction_list.append(classifier_based_on_most_frequent_terms_with_threshold(data_text))

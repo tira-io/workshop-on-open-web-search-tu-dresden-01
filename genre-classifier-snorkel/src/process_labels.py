@@ -2,14 +2,6 @@ from load_data import load_plain_text_dfs
 import spacy
 from collections import Counter
 
-
-def get_df(term, labels):
-    df = 0
-    for label in labels:
-        if term in label:
-            df += 1
-    return df 
-
 def parse_doc(doc, nlp):
     # get the doc and terms and the count of term in the doc
     doc = get_tokens_info(doc, nlp)

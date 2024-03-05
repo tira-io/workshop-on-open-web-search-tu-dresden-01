@@ -10,7 +10,7 @@ def normalize_token(token):
 import pathlib
 directory = pathlib.Path(__file__).parent.parent.resolve()
 
-for f in ['discussion.txt', 'article.txt']:
+for f in ['discussion.txt']:
     with open(directory / 'resources' / 'wordlists' / f) as wordlist:
         files_to_tokens[f] = set(normalize_token(i) for i in wordlist.read().split('\n'))
 
