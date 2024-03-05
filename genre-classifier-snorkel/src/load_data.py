@@ -2,8 +2,9 @@ from pathlib import Path
 import codecs
 import pandas as pd
 from resiliparse.extract.html2text import extract_plain_text
+from pathlib import Path
 
-from src import DATA_PATH
+DATA_PATH = Path(__file__).parent.parent.resolve() / "data"
 
 def load_plain_text_dfs(language="english"):
     data_path = DATA_PATH / f"{language}_corpus"
