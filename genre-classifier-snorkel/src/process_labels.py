@@ -52,8 +52,8 @@ def get_tf_for_labels(df, nlp):
 def run():
     df_train, _ = load_plain_text_dfs(language="english")
     nlp = spacy.load("en_core_web_lg")
-    #parse_doc(df_train, nlp)
-    print(get_tf_for_labels(df_train, nlp))
+    #print(get_tf_for_labels(df_train, nlp))
+    # todo call get_tf_for_labels to create the tf values for each class
     
 
 
