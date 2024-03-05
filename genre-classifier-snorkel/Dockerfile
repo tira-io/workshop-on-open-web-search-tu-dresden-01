@@ -1,6 +1,8 @@
 #see ../Dockerfile.dev for the devcontainer
 FROM webis/wows-2024-baseline:0.0.1-snorkel
 
+ENV PYTHONPATH=/app/src
+
 ADD data /app/data
 ADD resources /app/resources
 ADD src /app/src
@@ -9,6 +11,8 @@ ADD tests /app/tests
 ADD tests /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/tests
 
 RUN pip3 install -r /app/requirements.txt \
+    && python3 -m spacy download en_core_web_sm \
+    && python3 -c "import nltk; nltk.download('punkt');" \
     && cd /app \
     && pytest
 

@@ -1,1 +1,2 @@
 snorkel
+nltk
