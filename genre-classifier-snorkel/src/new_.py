@@ -42,7 +42,7 @@ def parse_doc(doc):
     return new_
 
 def get_intersection_count(doc, label):
-    intetsection = 0
+    intersection = 0
     for token in doc:
         if token in label:
             intetsection += doc[token]
