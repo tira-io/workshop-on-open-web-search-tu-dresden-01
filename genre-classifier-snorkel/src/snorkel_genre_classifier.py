@@ -14,23 +14,25 @@ from nltk.stem import PorterStemmer
 
 # Constants for the labels
 ABSTAIN = -1
-DISCUSSION = 0
-SHOP = 1
-SCHOLAR = 2
-DOWNLOAD = 3
-ARTICLES = 4
-HELP = 5
-LINKLISTS = 6
-PORTRAIT_PRIV = 7
-PROTAIT_NPRIV = 8
+ARTICLES = 0
+DISCUSSION = 1
+DOWNLOAD = 2
+HELP = 3
+LINKLISTS = 4
+PROTAIT_NPRIV = 5
+PORTRAIT_PRIV = 6
+SHOP = 7
+SCHOLAR = 8
 
 # Constants for the labels
 label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
                 HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
 label_words = {DISCUSSION: [], SHOP: [], SCHOLAR: [], DOWNLOAD : [], ARTICLES : [],
                 HELP : [], LINKLISTS : [], PORTRAIT_PRIV : [], PROTAIT_NPRIV : []}
+
 directory = "/workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/resources/vocabulary/"
 ps = PorterStemmer()
+
 
 def lf_text_contains_discussion_term(doc):
     # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
@@ -77,7 +79,6 @@ def parse_args():
 
 
 if __name__ == '__main__':
-    label_words = load_class_tokens()
     dataset = ir_datasets.load(parse_args().input)
 
     # The expected output directory, injected via the environment variable TIRA_OUTPUT_DIRECTORY

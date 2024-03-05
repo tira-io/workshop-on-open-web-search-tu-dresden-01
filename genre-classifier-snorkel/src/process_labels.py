@@ -69,11 +69,12 @@ def get_term_dict(df, nlp):
 
 def run():
     df_train, _ = load_plain_text_dfs(language="english")
-    nlp = spacy.load("en_core_web_lg")
+    nlp = spacy.load("en_core_web_sm")
     # print(get_tf_for_labels(df_train, nlp))
     # todo call get_tf_for_labels to create the tf values for each class
     labels_terms = get_tf_for_labels(df_train, nlp)
     terms = get_term_dict(df_train, nlp)
+    return terms, labels_terms
 
     
 
