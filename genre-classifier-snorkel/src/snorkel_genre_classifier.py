@@ -8,6 +8,8 @@ from snorkel.labeling.model import MajorityLabelVoter
 import numpy as np
 import spacy
 from collections import Counter
+import pathlib
+from nltk.stem import PorterStemmer 
 
 
 # Constants for the labels
@@ -27,18 +29,8 @@ label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', SCHOLAR: 'Scholar', ABSTA
                 HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
 label_words = {DISCUSSION: [], SHOP: [], SCHOLAR: [], DOWNLOAD : [], ARTICLES : [],
                 HELP : [], LINKLISTS : [], PORTRAIT_PRIV : [], PROTAIT_NPRIV : []}
-
-def get_tokens_types(doc):
-    nlp = spacy.load("en_core_web_sm")
-    doc = nlp(doc)
-    tokens = []
-    for token in doc:
-        tokens.append((token.text, token.pos_, token.tag_, token.is_alpha, token.is_stop))
-    return [t for t in tokens if not t[4]]
-
-def tokens_with_count(tokens):
-    tokens_with_count = Counter(tokens)
-    return tokens_with_count
+directory = "/workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/resources/vocabulary/"
+ps = PorterStemmer()
 
 def lf_text_contains_discussion_term(doc):
     # TODO, use real word lists, maybe with stemming, stoppword removal, tokenization, etc.
@@ -56,7 +48,7 @@ def lf_text_contains_shop_term(doc):
 # Tutorial: https://www.snorkel.org/get-started/
 
 def get_snorkel_pandas_lf_applier():
-    lfs = [lf_text_contains_discussion_term, lf_text_contains_shop_term,
+    lfs = [lf_text_contains_discussion_terms, lf_text_contains_shop_terms,
            # TODO, more labeling functions
           ]
 
@@ -85,6 +77,7 @@ def parse_args():
 
 
 if __name__ == '__main__':
+    label_words = load_class_tokens()
     dataset = ir_datasets.load(parse_args().input)
 
     # The expected output directory, injected via the environment variable TIRA_OUTPUT_DIRECTORY
