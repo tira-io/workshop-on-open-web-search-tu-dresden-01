@@ -3,8 +3,6 @@ from tira.third_party_integrations import ir_datasets, get_output_directory
 from __init__ import CLASSIFIER_PATH
 import pandas as pd
 from pathlib import Path
-from tqdm import tqdm
-from collections import defaultdict
  
 
 def parse_args():

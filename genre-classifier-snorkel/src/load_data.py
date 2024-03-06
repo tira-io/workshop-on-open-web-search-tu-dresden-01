@@ -27,7 +27,6 @@ def _load_file_tuples(data_path, file_stem="train_split.txt"):
 
     return file_tuples
 
-
 def _load_plain_text_file(data_path, file_tup):
     label, file_stem = file_tup
 
