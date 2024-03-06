@@ -45,11 +45,11 @@ def get_df_text_for_ir_dataset(dataset):
 
 
 if __name__ == '__main__':
-    print("start the test")
+    print("Run MLP classifier.")
     args = parse_args()
 
-    # to classify gerneral dataset uncomment this lines and comment the lines ab 62
 
+    # to classify gerneral dataset uncomment this lines and comment the lines ab 62
     # dataset = ir_datasets.load(args.input)
     # data = get_df_text_for_ir_dataset(dataset)
     # res = classify(data)
