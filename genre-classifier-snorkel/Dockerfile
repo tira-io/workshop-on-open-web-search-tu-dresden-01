@@ -12,7 +12,7 @@ ADD tests /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier
 
 RUN pip3 install -r /app/requirements.txt \
     && python3 -m spacy download en_core_web_sm \
-    && python3 -c "import nltk; nltk.download('punkt');" \
+    && python3 -c "import nltk; nltk.download('punkt'); nltk.download('stopwords');" \
     && cd /app \
     && pytest
 
