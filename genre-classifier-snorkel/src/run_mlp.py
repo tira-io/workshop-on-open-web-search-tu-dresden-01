@@ -43,7 +43,7 @@ def get_df_text_for_ir_dataset(dataset):
 
 
 if __name__ == '__main__':
-    print("start the test")
+    print("Run MLP classifier.")
     args = parse_args()
 
     # to classify gerneral dataset uncomment this lines and comment the lines ab 47
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     res = pd.DataFrame(zip(data['docno'],
                           [label(i).name for i in data['predicted_labels']]))
     output_dir = get_output_directory('.')
-    output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
+    output_file = Path(output_dir) / 'documents.jsonl.gz'
     pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
 
     # test the model on the labeled test data from zenodo dataset

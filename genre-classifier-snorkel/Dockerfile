@@ -16,4 +16,4 @@ RUN pip3 install -r /app/requirements.txt \
     && cd /app \
     && pytest
 
-ENTRYPOINT [ "python3", "/app/src/snorkel_genre_classifier.py", "--input", "$inputDataset" ]
+#ENTRYPOINT [ "python3", "/app/src/run_mlp.py", "--input", "$inputDataset" ]
