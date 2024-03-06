@@ -31,7 +31,7 @@ def get_all_terms_df(labels_ids):
         filename = str(l_id) + '.json'
         with open(path / 'resources' /'Json'/ filename, 'r') as file:
             d = json.load(file)
-            terms += [k for k in d]
+            terms += [k for k in d.keys()]
     
     return Counter(terms)
 
