@@ -28,7 +28,7 @@ for f in ['vocabulary-popescul-modified-discussion.txt', 'vocabulary-popescul-mo
 def preprocess_document(text):
     normalized_tokens = [normalize_token(t) for t in word_tokenize(text) if t not in stopwords]
     return {
-        #'normalized_tokens': normalized_tokens,
+        'normalized_tokens': normalized_tokens,
         #'normalized_token_set': list(set(normalized_tokens)),
         'tokens_with_count_75': [i[0] for i in Counter(normalized_tokens).most_common(75)],
         'tokens_with_count_100': [i[0] for i in Counter(normalized_tokens).most_common(100)],
