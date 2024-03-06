@@ -47,3 +47,5 @@ if __name__ == '__main__':
     all = get_all_terms_df(labels_id)
     with open(path / 'resources' /'Json'/ 'all_terms.json', "w") as outfile: 
         json.dump(all, outfile)
+    
+    
