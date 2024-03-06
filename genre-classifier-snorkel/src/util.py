@@ -25,18 +25,18 @@ for f in ['vocabulary-popescul-modified-discussion.txt', 'vocabulary-popescul-mo
         files_to_tokens[f] = set(i for i in files_to_tokens[f] if i not in stopwords)
     
 
-def preprocess_document(text, num=75):
+def preprocess_document(text):
     normalized_tokens = [normalize_token(t) for t in word_tokenize(text) if t not in stopwords]
-    tokens_with_count = [i[0] for i in Counter(normalized_tokens).most_common(num)]
     return {
-        'normalized_tokens': normalized_tokens,
-        'normalized_token_set': list(set(normalized_tokens)),
-        'tokens_with_count': tokens_with_count,
+        #'normalized_tokens': normalized_tokens,
+        #'normalized_token_set': list(set(normalized_tokens)),
+        'tokens_with_count_75': [i[0] for i in Counter(normalized_tokens).most_common(75)],
+        'tokens_with_count_100': [i[0] for i in Counter(normalized_tokens).most_common(100)],
     }
 
-def extract_overlapping_terms(processed_document, filename):
+def extract_overlapping_terms(processed_document, field, filename):
     ret = []
-    for term in processed_document['tokens_with_count']:
+    for term in processed_document[field]:
         if term in files_to_tokens[filename]:
             ret += [term]
 

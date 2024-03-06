@@ -37,8 +37,8 @@ def run(language = "english"):
 def _apply_classifier(df_test, text_col: str = "plain_text", language: str = "english"):
     prediction_list = []
     for data_text in tqdm(list(df_test[text_col])):
-        #prediction_list.append(classifier_based_on_most_frequent_terms_with_threshold(preprocess_document(data_text)))
-        prediction_list.append(classifier_based_on_most_frequent_terms(preprocess_document(data_text)))
+        prediction_list.append(classifier_based_on_most_frequent_terms_with_threshold(preprocess_document(data_text)))
+        #prediction_list.append(classifier_based_on_most_frequent_terms(preprocess_document(data_text)))
 
     prediction_array = np.array(prediction_list)
     df_test[f"prediction_{text_col}"] = prediction_array
