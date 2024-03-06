@@ -5,6 +5,10 @@ import pathlib
 import json
 from collections import Counter
 
+# this file contains a preprocessing phase to create file for each label containing 
+# the tf values and a file contains all words with the df values
+# considering every class as a document
+
 path = pathlib.Path(__file__).parent.parent.resolve()
 
 def save_in_file(terms, label_name):
@@ -32,15 +36,12 @@ def get_all_terms_df(labels_ids):
         with open(path / 'resources' /'Json'/ filename, 'r') as file:
             d = json.load(file)
             terms += [k for k in d.keys()]
-    
     return Counter(terms)
 
 if __name__ == '__main__':
 
     _, df_test = load_plain_text_dfs(language="english")
-
     nlp = spacy.load("en_core_web_sm")
-    
     labels_id = df_test['label']
     for label_id in labels_id:
         create_for_label_id(label_id, nlp, df_test)

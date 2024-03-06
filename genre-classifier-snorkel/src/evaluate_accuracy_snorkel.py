@@ -1,12 +1,7 @@
 import numpy as np
-from joblib import load
 from tqdm import tqdm
-
 from load_data import load_plain_text_dfs
-from utils import lemmatize_text
-
 from genre_classification_rules import classifier_based_on_most_frequent_terms, classifier_based_on_most_frequent_terms_with_threshold,  ABSTAIN, DISCUSSION, SHOP, DOWNLOAD, ARTICLES, HELP, LINKLISTS, PORTRAIT_PRIV, PROTAIT_NPRIV
-
 from util import preprocess_document
 
 def run(language = "english"):

@@ -20,8 +20,6 @@ SHOP = 7
 label_names = {DISCUSSION: 'Discussion', SHOP: 'Shop', ABSTAIN: 'Abstain', DOWNLOAD : 'Download', ARTICLES : 'Articles',
                 HELP : 'Help', LINKLISTS : 'Linklists', PORTRAIT_PRIV : 'Porttrait private', PROTAIT_NPRIV : 'Protrait non private'}
 
-
-
 def tokens_with_count(tokens):
     tokens_with_count = Counter(tokens)
     return tokens_with_count

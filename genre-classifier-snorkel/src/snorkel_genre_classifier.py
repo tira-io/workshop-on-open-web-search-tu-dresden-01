@@ -31,6 +31,7 @@ def process_documents(document_iter, variant=None):
         df += [doc]
 
     df = pd.DataFrame(df)
+    
     document_features = snorkel_applier.apply(df)
     #todo, also test and maybe implement more advanced models
     label_model = MajorityLabelVoter(cardinality=len(label_names))
