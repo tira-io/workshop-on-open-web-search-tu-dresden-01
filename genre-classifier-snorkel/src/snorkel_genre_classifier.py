@@ -5,8 +5,9 @@ from pathlib import Path
 import pandas as pd
 from snorkel.labeling import LabelingFunction, PandasLFApplier, LFAnalysis
 from snorkel.labeling.model import MajorityLabelVoter
-from nltk.stem import PorterStemmer 
+from tqdm import tqdm
 from genre_classification_rules import classifier_based_on_most_frequent_terms, classifier_based_on_most_frequent_terms_with_threshold, label_names
+from util import preprocess_document
 
 
 
@@ -20,7 +21,14 @@ def get_snorkel_pandas_lf_applier():
 
 def process_documents(document_iter):
     snorkel_applier = get_snorkel_pandas_lf_applier()
-    df = pd.DataFrame([{'docno': i.doc_id, 'text': i.default_text()} for i in document_iter])
+    df = []
+    for i in tqdm(document_iter, 'Pre-process Documents.'):
+        doc = preprocess_document(i.default_text())
+        doc['docno'] = i.doc_id
+        doc['text'] = i.default_text()
+        df += [doc]
+
+    df = pd.DataFrame(df)
     document_features = snorkel_applier.apply(df)
     #todo, also test and maybe implement more advanced models
     label_model = MajorityLabelVoter(cardinality=len(label_names))

@@ -40,17 +40,14 @@ def read_token_of_each_class(path):
         content = [line.strip() for line in content]
     return content
 
-
-
-def classifier_based_on_most_frequent_terms(doc, num = 100):
-    most_frequent_terms = " ".join(get_most_frequent_terms(doc, num))
-    article_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-articles.txt'))
-    download_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-download.txt'))
-    discussion_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-discussion.txt'))
-    linklists_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-linklists.txt'))
-    portrait_non_priv_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-portrait-non_priv.txt'))
-    portrait_priv_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-portrait-priv.txt'))
-    shop_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-shop.txt'))
+def classifier_based_on_most_frequent_terms(doc):
+    article_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-articles.txt'))
+    download_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-download.txt'))
+    discussion_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-discussion.txt'))
+    linklists_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-linklists.txt'))
+    portrait_non_priv_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-portrait-non_priv.txt'))
+    portrait_priv_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-portrait-priv.txt'))
+    shop_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-shop.txt'))
 
     max_value = max(article_terms_len, download_terms_len, discussion_terms_len, linklists_terms_len, portrait_non_priv_terms_len, portrait_priv_terms_len, shop_terms_len)
     if (max_value == article_terms_len):
@@ -72,15 +69,14 @@ def classifier_based_on_most_frequent_terms(doc, num = 100):
 
 
 
-def classifier_based_on_most_frequent_terms_with_threshold(doc, num = 100, offset=5):
-    most_frequent_terms = " ".join(get_most_frequent_terms(doc, num))
-    article_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-articles.txt'))
-    download_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-download.txt'))
-    discussion_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-discussion.txt'))
-    linklists_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-linklists.txt'))
-    portrait_non_priv_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-portrait-non_priv.txt'))
-    portrait_priv_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-portrait-priv.txt'))
-    shop_terms_len = len(util.extract_overlapping_terms(most_frequent_terms, 'vocabulary-popescul-modified-shop.txt'))
+def classifier_based_on_most_frequent_terms_with_threshold(doc, offset=5):
+    article_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-articles.txt'))
+    download_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-download.txt'))
+    discussion_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-discussion.txt'))
+    linklists_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-linklists.txt'))
+    portrait_non_priv_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-portrait-non_priv.txt'))
+    portrait_priv_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-portrait-priv.txt'))
+    shop_terms_len = len(util.extract_overlapping_terms(doc, 'vocabulary-popescul-modified-shop.txt'))
 
     nums = [article_terms_len, download_terms_len, discussion_terms_len, linklists_terms_len, portrait_non_priv_terms_len,
             portrait_priv_terms_len, shop_terms_len ]
