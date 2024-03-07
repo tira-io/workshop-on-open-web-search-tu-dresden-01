@@ -38,6 +38,12 @@ def read_token_of_each_class(path):
         content = [line.strip() for line in content]
     return content
 
+'''
+Classify documents by analyzing the top 75 tokens with the highest probability within each document. 
+These tokens will be cross-referenced with the vocabulary in a designated vocabulary corpus. 
+The document will then be categorized based on the classes associated with these tokens.
+''' 
+
 def classifier_based_on_most_frequent_terms(doc, dir_name='vocabulary-popescul-modified'):
     article_terms_len = len(util.extract_overlapping_terms(doc, 'tokens_with_count_75', dir_name + '-articles.txt'))
     download_terms_len = len(util.extract_overlapping_terms(doc, 'tokens_with_count_75', dir_name +'-download.txt'))
@@ -64,6 +70,13 @@ def classifier_based_on_most_frequent_terms(doc, dir_name='vocabulary-popescul-m
         return SHOP
     else:
         return ABSTAIN
+    
+'''
+Classify documents by analyzing the top 75 tokens with the highest probability within each document. 
+These tokens will be cross-referenced with the vocabulary in a designated vocabulary corpus. 
+The document will then be categorized based on the classes associated with these tokens.
+If  receiving uncertain result, documents will not be categorized (categorized as ABSTAIN)
+''' 
 
 def classifier_based_on_most_frequent_terms_with_threshold(doc, dir_name='vocabulary-popescul-modified', offset=5):
     article_terms_len = len(util.extract_overlapping_terms(doc, 'tokens_with_count_100', dir_name +'-articles.txt'))
