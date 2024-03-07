@@ -30,11 +30,11 @@ def _train_classifier(df_train, text_col: str = "plain_text", language: str = "e
     dump(vectorizier, CLASSIFIER_PATH / f"vectorizer_{text_col}_{'mlp'}_{language}.joblib")
 
     # Train and save the classifier
-    nb_classifier = MLPClassifier(hidden_layer_sizes=(50))
-    nb_classifier.fit(X_train, y_train)
+    mlp_classifier = MLPClassifier(hidden_layer_sizes=(50))
+    mlp_classifier.fit(X_train, y_train)
 
     out_path = CLASSIFIER_PATH / f"classifier_{text_col}_{'mlp'}_{language}.joblib"
-    dump(nb_classifier, out_path)
+    dump(mlp_classifier, out_path)
     print(f"Trained classifier on plain text and saved results to {out_path}\n")
 
 
