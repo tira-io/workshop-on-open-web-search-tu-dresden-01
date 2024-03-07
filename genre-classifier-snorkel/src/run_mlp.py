@@ -50,26 +50,26 @@ if __name__ == '__main__':
 
 
     # to classify gerneral dataset uncomment this lines and comment the lines ab 62
-    # dataset = ir_datasets.load(args.input)
-    # data = get_df_text_for_ir_dataset(dataset)
-    # res = classify(data)
-    # res = pd.DataFrame(zip(data['docno'],
-    #                       [label(i).name for i in data['predicted_labels']]))
-    # output_dir = get_output_directory('.')
-    # output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
-    # pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
+    dataset = ir_datasets.load(args.input)
+    data = get_df_text_for_ir_dataset(dataset)
+    res = classify(data)
+    res = pd.DataFrame(zip(data['docno'],
+                           [label(i).name for i in data['predicted_labels']]), columns=['docno', 'label'])
+    output_dir = get_output_directory('.')
+    output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
+    pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
 
     # test the model on the labeled test data from zenodo dataset
 
-    _, dataset_test_data = load_plain_text_dfs()
-    data = dataset_test_data
-    data = classify(data, text_col='plain_text', text_type='plain_text')
+    # _, dataset_test_data = load_plain_text_dfs()
+    # data = dataset_test_data
+    # data = classify(data, text_col='plain_text', text_type='plain_text')
 
-    res = pd.DataFrame(zip(data['file_name'], [label(i).name for i in data['label']], 
-                           [label(i).name for i in data['predicted_labels']]))
+    # res = pd.DataFrame(zip(data['file_name'], [label(i).name for i in data['label']], 
+    #                       [label(i).name for i in data['predicted_labels']]))
     
-    print(f'Accuracy on test data: ' + accuracy_score(res['label'], res['predicted_labels']))
-    print(classification_report(res['label'], res['predicted_labels']))
+    # print(f'Accuracy on test data: ' + accuracy_score(res['label'], res['predicted_labels']))
+    # print(classification_report(res['label'], res['predicted_labels']))
 
     output_dir = get_output_directory('.')
     output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
