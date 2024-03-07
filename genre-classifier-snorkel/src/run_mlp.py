@@ -39,7 +39,6 @@ def classify(data, modelname='mlp', language='english', text_col='text', text_ty
     predicted_labels = mlp_classifier.predict(v_data)
     prob_prediction = mlp_classifier.predict_proba(v_data)
     data['predicted_labels'] = predicted_labels
-    print(prob_prediction)
     data['prob_prediction'] = [max(i) for i in prob_prediction]
     
     # if want to remove predicted labels with prob < 0.5
@@ -53,20 +52,14 @@ def get_df_text_for_ir_dataset(dataset):
     res = pd.DataFrame(data)
     return res
 
+def run_mlp(dataset, text_type='plain_text'):
+    data = get_df_text_for_ir_dataset(dataset)
+    res = classify(data, text_type = text_type)
+    res = pd.DataFrame(zip(data['docno'],
+                           [label(i).name for i in data['predicted_labels']]), columns=['docno', 'label'])
+    return res
 
-if __name__ == '__main__':
-    print("Run MLP classifier.")
-    args = parse_args()
-
-    # to classify gerneral dataset uncomment this lines and comment the lines ab 62
-    # dataset = ir_datasets.load(args.input)
-    # data = get_df_text_for_ir_dataset(dataset)
-    # res = classify(data, text_type='plain_text')
-    # res = pd.DataFrame(zip(data['docno'],
-    #                        [label(i).name for i in data['predicted_labels']]), columns=['docno', 'label'])
-   
-
-    # test the model on the labeled test data from zenodo dataset
+def run_mlp_test_data():
     _, dataset_test_data = load_plain_text_dfs()
     data = dataset_test_data
     data = classify(data, text_col='plain_text', text_type='plain_text')
@@ -75,12 +68,25 @@ if __name__ == '__main__':
                           'predicted_labels':[label(i).name for i in data['predicted_labels']],
                           'prob_prediction': data['prob_prediction']})
     
-    print(res[res['prob_prediction'] <= 0.5])
     print(f'Accuracy on test data: ' + str(accuracy_score(res['label'], res['predicted_labels'])))
     print(classification_report(res['label'], res['predicted_labels']))
     print(precision_score(res['label'], res['predicted_labels'], average='weighted'))
     print(recall_score(res['label'], res['predicted_labels'], average='weighted'))
 
+    return res
+
+
+if __name__ == '__main__':
+    print("Run MLP classifier.")
+    args = parse_args()
+
+    # run mlp on input dataset
+    dataset = ir_datasets.load(args.input)
+    res = run_mlp(dataset)
+
+    # test the model on the labeled test data from zenodo dataset
+    res = run_mlp_test_data()
+    
     # save the results in file 
     output_dir = get_output_directory('.')
     output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'

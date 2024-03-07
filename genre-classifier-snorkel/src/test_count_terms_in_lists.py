@@ -3,15 +3,15 @@ from src.util import extract_overlapping_terms, preprocess_document
 
 class TestCountTermsInLists(unittest.TestCase):
     def test_discussion_01(self):
-        text = preprocess_document('The title of my messages is always hello.')
-        terms_in_discussion_list = ['titl', 'messag']
-        actual = extract_overlapping_terms(text, 'tokens_with_count_75', 'discussion.txt')
+        text = preprocess_document('The of my messages is always hello.')
+        terms_in_discussion_list = ['messag']
+        actual = extract_overlapping_terms(text, 'tokens_with_count_75', 'vocabulary-popescul-modified-discussion.txt')
         self.assertEquals(terms_in_discussion_list, actual)
 
     def test_discussion_02(self):
-        text = preprocess_document('my emails, were,posted.')
-        terms_in_discussion_list = ['email', 'post']
-        actual = extract_overlapping_terms(text, 'tokens_with_count_75', 'discussion.txt')
+        text = preprocess_document('my mails, were,posted.')
+        terms_in_discussion_list = ['mail', 'post']
+        actual = extract_overlapping_terms(text, 'tokens_with_count_75', 'vocabulary-popescul-modified-discussion.txt')
         self.assertEquals(terms_in_discussion_list, actual)
 
     def test_discussion_03(self):

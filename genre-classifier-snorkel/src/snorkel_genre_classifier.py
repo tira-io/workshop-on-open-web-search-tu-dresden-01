@@ -22,6 +22,7 @@ def get_snorkel_pandas_lf_applier(variant=None):
     return PandasLFApplier(lfs=[LabelingFunction(name=func.__name__, f=func) for func in lfs])
 
 def process_documents(document_iter, variant=None):
+    dir_name = 'vocabulary-popescul-modified'
     snorkel_applier = get_snorkel_pandas_lf_applier(variant)
     df = []
     for i in tqdm(document_iter, 'Pre-process Documents.'):
@@ -32,7 +33,7 @@ def process_documents(document_iter, variant=None):
 
     df = pd.DataFrame(df)
     
-    document_features = snorkel_applier.apply(df)
+    document_features = snorkel_applier.apply(df, dir_name)
     #todo, also test and maybe implement more advanced models
     label_model = MajorityLabelVoter(cardinality=len(label_names))
 
@@ -49,8 +50,13 @@ def parse_args():
     parser.add_argument('--rules', type=str, default=None, help='Set to none or precision or recall.')
     return parser.parse_args()
 
+def run_snorkel_rules(dataset, args):
+    # process the documents, store results at expected location.
+    processed_documents = process_documents(dataset.docs_iter(), args.rules)
+    return processed_documents
 
 if __name__ == '__main__':
+
     args = parse_args()
     dataset = ir_datasets.load(args.input)
 
@@ -59,10 +65,7 @@ if __name__ == '__main__':
     
     # Document processors persist their results in a file documents.jsonl.gz in the output directory.
     output_file = Path(output_dir) / 'documents.jsonl.gz'
-    
-    # You can pass as many additional arguments to your program, e.g., via argparse, to modify the behaviour
-    
-    # process the documents, store results at expected location.
-    processed_documents = process_documents(dataset.docs_iter(), args.rules)
-    processed_documents.to_json(output_file, lines=True, orient='records')
+
+    res = run_snorkel_rules(dataset, args)
+    res.to_json(output_file, lines=True, orient='records')
     
