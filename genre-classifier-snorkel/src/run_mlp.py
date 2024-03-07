@@ -51,7 +51,7 @@ if __name__ == '__main__':
     data = get_df_text_for_ir_dataset(dataset)
     res = classify(data)
     res = pd.DataFrame(zip(data['docno'],
-                          [label(i).name for i in data['predicted_labels']]))
+                          [label(i).name for i in data['predicted_labels']]), columns=['docno', 'label'])
     output_dir = get_output_directory('.')
     output_file = Path(output_dir) / 'documents.jsonl.gz'
     pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
