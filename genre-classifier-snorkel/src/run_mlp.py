@@ -56,7 +56,7 @@ if __name__ == '__main__':
     res = pd.DataFrame(zip(data['docno'],
                            [label(i).name for i in data['predicted_labels']]), columns=['docno', 'label'])
     output_dir = get_output_directory('.')
-    output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
+    output_file = Path(output_dir) / 'documents.jsonl.gz'
     pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
 
     # test the model on the labeled test data from zenodo dataset
@@ -71,6 +71,6 @@ if __name__ == '__main__':
     # print(f'Accuracy on test data: ' + accuracy_score(res['label'], res['predicted_labels']))
     # print(classification_report(res['label'], res['predicted_labels']))
 
-    output_dir = get_output_directory('.')
-    output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
-    pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
+    # output_dir = get_output_directory('.')
+    # output_file = Path(output_dir) / 'documents_newmlp.jsonl.gz'
+    # pd.DataFrame(res).to_json(output_file, lines=True, orient='records')
