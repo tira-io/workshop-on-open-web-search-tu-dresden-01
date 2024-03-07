@@ -6,7 +6,7 @@ from utils import lemmatize_text
 import pandas as pd
 from pathlib import Path
 import enum
-from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score
+from sklearn.metrics import classification_report, precision_recall_curve, PrecisionRecallDisplay
 
 # in this file is the funktion to use the mlp classifier 
  
@@ -38,11 +38,10 @@ def classify(data, modelname='mlp', language='english', text_col='text', text_ty
     v_data = vectorizer.transform(data[text_col])
     predicted_labels = mlp_classifier.predict(v_data)
     prob_prediction = mlp_classifier.predict_proba(v_data)
-    data['predicted_labels'] = predicted_labels
-    data['prob_prediction'] = [max(i) for i in prob_prediction]
     
-    # if want to remove predicted labels with prob < 0.5
-    # data = data[data['prob_prediction'] >= 0.5]
+    data['predicted_labels'] = predicted_labels
+    data['prob_prediction'] = prob_prediction[range(len(predicted_labels)), predicted_labels]
+
     return data
 
 def get_df_text_for_ir_dataset(dataset):
@@ -56,7 +55,7 @@ def run_mlp(dataset, text_type='plain_text'):
     data = get_df_text_for_ir_dataset(dataset)
     res = classify(data, text_type = text_type)
     res = pd.DataFrame(zip(data['docno'],
-                           [label(i).name for i in data['predicted_labels']]), columns=['docno', 'label'])
+                           [label(i).name.lower() for i in data['predicted_labels']]), columns=['docno', 'label'])
     return res
 
 def run_mlp_test_data():
@@ -64,14 +63,13 @@ def run_mlp_test_data():
     data = dataset_test_data
     data = classify(data, text_col='plain_text', text_type='plain_text')
 
-    res = pd.DataFrame({ 'file_name': data['file_name'], 'label': [label(i).name for i in data['label']], 
-                          'predicted_labels':[label(i).name for i in data['predicted_labels']],
+    res = pd.DataFrame({ 'file_name': data['file_name'], 'label': [label(i).name.lower() for i in data['label']], 
+                          'predicted_labels':[label(i).name.lower() for i in data['predicted_labels']],
                           'prob_prediction': data['prob_prediction']})
     
     print(classification_report(res['label'], res['predicted_labels']))
-    
-    return res
 
+    return res
 
 if __name__ == '__main__':
     print("Run MLP classifier.")
