@@ -6,6 +6,8 @@ from tqdm import tqdm
 from utils import lemmatize_text
 from __init__ import CLASSIFIER_PATH
 
+# create model mlp classifer and train it on the train dataset from zenodo
+
 def run(language = "english"):
     df_train, _ = load_plain_text_dfs(language=language)
 

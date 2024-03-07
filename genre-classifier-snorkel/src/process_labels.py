@@ -1,6 +1,7 @@
 from collections import Counter
 
 # in this file is the preprocessing for the documents lemmatizing and counting the frequency
+# is used to create vocabulary for each classes
 
 def parse_doc(doc, nlp):
     # get the doc and terms and the count of term in the doc

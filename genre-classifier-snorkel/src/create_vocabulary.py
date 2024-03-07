@@ -8,23 +8,21 @@ from collections import Counter
 # this file contains a preprocessing phase to create file for each label containing 
 # the tf values and a file contains all words with the df values
 # considering every class as a document
+# using the labeled dataset zenodo
 
 path = pathlib.Path(__file__).parent.parent.resolve()
 
 def save_in_file(terms, label_name):
     label_name = 'vocanulary-popsecul-modified-' + label_name + '.txt'
-
     with open(path / 'resources' / 'vocabulary_modified' / label_name, 'w') as out:
         for t in terms:
             out.write(t + ' ')
 
 def create_for_label_id(l_id, nlp, df):
-   
     terms = get_tf_for_labels(df.loc[df['label'] == l_id], nlp)
     filename = str(l_id) + '.json'
     with open(path / 'resources' /'Json'/ filename, "w") as outfile: 
         json.dump(terms[l_id], outfile)
-
     sort_terms = sorted(terms[l_id].items(), key=lambda item: -item[1])
     key_terms = [t[0] for t in sort_terms[:10]]
     save_in_file(key_terms, str(l_id))
@@ -39,7 +37,6 @@ def get_all_terms_df(labels_ids):
     return Counter(terms)
 
 if __name__ == '__main__':
-
     _, df_test = load_plain_text_dfs(language="english")
     nlp = spacy.load("en_core_web_sm")
     labels_id = df_test['label']
