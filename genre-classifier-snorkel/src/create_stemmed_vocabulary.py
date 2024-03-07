@@ -52,10 +52,10 @@ def calc_tf_idf(dict_tf, dict_df):
                 dict_tf_idf[key][word] = tf / df
     return dict_tf_idf
 
-def get_key_words(dict_tf_idf, num=200):
+def get_key_words(dict_tf_idf, num=100):
     for key, value in dict_tf_idf.items():
         # Sort the dictionary by value in descending order and take only the highest 100
-        sorted_value = dict(sorted(value.items(), key=lambda item: item[1], reverse=True)[:200])
+        sorted_value = dict(sorted(value.items(), key=lambda item: item[1], reverse=True)[:num])
         dict_tf_idf[key] = sorted_value
 
     dict_tf_idf_set = {}
@@ -80,13 +80,11 @@ def make_disjoint(dict_tf_idf_set):
                 new_set.add(element)
         disjoint_dict[key] = new_set
     for key, value in disjoint_dict.items():
-        with open(directory + '/vocabulary_modified/vocabulary-popsecul-modified-' + str(key) + ".txt", 'w') as f:
+        with open(directory + '/vocabulary-modified/vocabulary-popsecul-modified-' + str(key) + ".txt", 'w') as f:
             f.write(' '.join(value))
 
 if __name__ == '__main__':
-     tf_idf = get_tf_df()
-     res = calc_tf_idf(tf_idf)
+     dict_tf, dict_df = get_tf_df()
+     res = calc_tf_idf(dict_tf, dict_df)
      words_set = get_key_words(res)
      make_disjoint(words_set)
-
-    
