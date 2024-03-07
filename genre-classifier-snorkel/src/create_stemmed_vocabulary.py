@@ -1,5 +1,6 @@
 from nltk.stem import PorterStemmer
 import json
+from genre_classification_rules import label_names
 
 # this file is a preprocessing file to improve the word lists for the classes
 # the idea is to consider each class as document and calculate the tf_idf for each class
@@ -80,11 +81,11 @@ def make_disjoint(dict_tf_idf_set):
                 new_set.add(element)
         disjoint_dict[key] = new_set
     for key, value in disjoint_dict.items():
-        with open(directory + '/vocabulary-modified/vocabulary-popsecul-modified-' + str(key) + ".txt", 'w') as f:
+        with open(directory + '/vocabulary-modified/vocabulary-popsecul-modified-' + label_names[key].lower().replace(" ", "-") + ".txt", 'w') as f:
             f.write(' '.join(value))
 
 if __name__ == '__main__':
      dict_tf, dict_df = get_tf_df()
      res = calc_tf_idf(dict_tf, dict_df)
-     words_set = get_key_words(res)
+     words_set = get_key_words(res, num=50)
      make_disjoint(words_set)
