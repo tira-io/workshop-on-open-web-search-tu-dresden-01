@@ -8,7 +8,7 @@ from pathlib import Path
 import enum
 from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score
 
-# 
+# in this file is the funktion to use the mlp classifier 
  
 class label(enum.Enum):
     # Constants for the labels
@@ -68,11 +68,8 @@ def run_mlp_test_data():
                           'predicted_labels':[label(i).name for i in data['predicted_labels']],
                           'prob_prediction': data['prob_prediction']})
     
-    print(f'Accuracy on test data: ' + str(accuracy_score(res['label'], res['predicted_labels'])))
     print(classification_report(res['label'], res['predicted_labels']))
-    print(precision_score(res['label'], res['predicted_labels'], average='weighted'))
-    print(recall_score(res['label'], res['predicted_labels'], average='weighted'))
-
+    
     return res
 
 
@@ -81,8 +78,8 @@ if __name__ == '__main__':
     args = parse_args()
 
     # run mlp on input dataset
-    dataset = ir_datasets.load(args.input)
-    res = run_mlp(dataset)
+    # dataset = ir_datasets.load(args.input)
+    # res = run_mlp(dataset)
 
     # test the model on the labeled test data from zenodo dataset
     res = run_mlp_test_data()
