@@ -3,8 +3,8 @@ from nltk.tokenize import word_tokenize
 ps = PorterStemmer()
 from collections import Counter
 import nltk
-#nltk.download('stopwords')
 
+# get the vocabularies for each class 
 files_to_tokens = {}
 
 def normalize_token(token):
@@ -35,6 +35,7 @@ def preprocess_document(text):
     }
 
 def extract_overlapping_terms(processed_document, field, filename):
+    # get the intersection between the doc and the class vocabulary
     ret = []
     for term in processed_document[field]:
         if term in files_to_tokens[filename]:

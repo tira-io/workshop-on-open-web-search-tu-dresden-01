@@ -15,9 +15,9 @@ class mlp_test(unittest.TestCase):
         data = {'text': [article, shop, discussion], 'docno': [0,1,2]}
 
         res = classify(data)
-        expected = [label.ARTICLES, label.SHOP, label.DISCUSSION]
+        expected = [label.PROTAIT_NPRIV.value, label.SHOP.value, label.PROTAIT_NPRIV.value]
         print(res)
-        self.assertListEqual(list(res['predicted_labels']), expected)
+        self.assertListEqual(list(res['predicted_label']), expected)
 
 
 

@@ -7,6 +7,8 @@ from load_data import load_plain_text_dfs
 from utils import lemmatize_text
 from src import CLASSIFIER_PATH
 
+# this is the train file for the Naive Bayes classifier
+
 
 def run(language = "english"):
     df_train, _ = load_plain_text_dfs(language=language)

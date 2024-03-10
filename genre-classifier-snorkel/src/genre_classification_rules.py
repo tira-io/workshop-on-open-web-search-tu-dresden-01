@@ -25,6 +25,7 @@ def tokens_with_count(tokens):
     return tokens_with_count
 
 def get_most_frequent_terms(doc, num=100):
+    # get the num most frequent terms in doc not stopwords
     tokens = process_labels.get_tokens_info(doc, nlp)
     most_frequent_terms_with_count = tokens_with_count(tokens).most_common(num)
     most_frequent_terms = []

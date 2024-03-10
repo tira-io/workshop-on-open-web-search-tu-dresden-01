@@ -1,8 +1,8 @@
 import spacy
 SPACY_MODELS = {"english": "en_core_web_sm"}
 
-def lemmatize_text(text, language):
-    nlp = spacy.load(SPACY_MODELS.get(language, "en_core_web_sm"))
+def lemmatize_text(text, language, nlp):
+    
     tokens = []
 
     for token in nlp(text):
