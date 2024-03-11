@@ -85,7 +85,7 @@ Result is then stored in 'documents.jsonl.gz' on TIRA_OUTPUT_DIRECTORY
 To test the accuracy, in /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py, comment out line 26 and 31
 ```bash
 cd PROJECT_ROOT
-python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py --input path/to/dataset
 ```
 
 
