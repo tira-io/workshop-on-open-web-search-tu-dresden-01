@@ -57,14 +57,17 @@ cd PROJECT_ROOT
 python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/snorkel_genre_classifier.py --input path/to/dataset --rules recall
 ```
 Result is then stored in 'documents.jsonl.gz' on TIRA_OUTPUT_DIRECTORY.
+### Genre classification rules:
 
 For testing the accuracy:
 comment out line 37 and uncomment line 38 of /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py
 ```bash
 cd PROJECT_ROOT
-python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py
-
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py.
+```
 ### Multilayer Perceptron Classifier
+
+
 The model is already created in /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/resources/classifiers.
 If you still want to train the model you can try the following:
 ```bash
