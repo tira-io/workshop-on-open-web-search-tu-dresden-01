@@ -43,7 +43,8 @@ If you want to focus on Precision, run the following:
 cd PROJECT_ROOT
 python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/snorkel_genre_classifier.py --input path/to/dataset --rules precision
 ```
-Result is then stored in 'documents.jsonl.gz'
+Result is then stored in 'documents.jsonl.gz' on TIRA_OUTPUT_DIRECTORY.
+
 For testing the accuracy:
 ```bash
 cd PROJECT_ROOT
@@ -55,7 +56,8 @@ Similarly, if you want to focus on total performance, run the following:
 cd PROJECT_ROOT
 python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/snorkel_genre_classifier.py --input path/to/dataset --rules recall
 ```
-Result is then stored in 'documents.jsonl.gz'
+Result is then stored in 'documents.jsonl.gz' on TIRA_OUTPUT_DIRECTORY.
+
 For testing the accuracy:
 comment out line 37 and uncomment line 38 of /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py
 ```bash
@@ -70,12 +72,20 @@ cd PROJECT_ROOT
 python 3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/classifier-model.py
 ```
 
-The model can be used to predict new dataset as following:
+The model can be used to predict new dataset as following. In /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py, comment out line 26 and 35
 ```bash
 cd PROJECT_ROOT
-python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/run_mlp.py --input path/to/dataset
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py --input path/to/dataset
 ```
-Result is then stored in 'documents.jsonl.gz'
+Result is then stored in 'documents.jsonl.gz' on TIRA_OUTPUT_DIRECTORY
+
+To test the accuracy, in /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py, comment out line 26 and 31
+```bash
+cd PROJECT_ROOT
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/main.py
+```
+
+
 
 
 
