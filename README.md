@@ -31,3 +31,51 @@ docker run --rm  -it -p 8888:8888 --entrypoint jupyter -w /workspace -v ${PWD}:/
 
 Run the github action to submit your software.
 
+## Run the software
+There are two main methods:
+- Genre classification rules
+- Multilayer Perceptron Classifier
+
+### Genre classification rules:
+If you want to focus on Precision, run the following:
+
+```bash
+cd PROJECT_ROOT
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/snorkel_genre_classifier.py --input path/to/dataset --rules precision
+```
+Result is then stored in 'documents.jsonl.gz'
+For testing the accuracy:
+```bash
+cd PROJECT_ROOT
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py
+```
+
+Similarly, if you want to focus on total performance, run the following:
+```bash
+cd PROJECT_ROOT
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/snorkel_genre_classifier.py --input path/to/dataset --rules recall
+```
+Result is then stored in 'documents.jsonl.gz'
+For testing the accuracy:
+comment out line 37 and uncomment line 38 of /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py
+```bash
+cd PROJECT_ROOT
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/evaluate_accuracy_snorkel.py
+
+### Multilayer Perceptron Classifier
+The model is already created in /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/resources/classifiers.
+If you still want to train the model you can try the following:
+```bash
+cd PROJECT_ROOT
+python 3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/classifier-model.py
+```
+
+The model can be used to predict new dataset as following:
+```bash
+cd PROJECT_ROOT
+python3 /workspaces/workshop-on-open-web-search-tu-dresden-01/genre-classifier-snorkel/src/run_mlp.py --input path/to/dataset
+```
+Result is then stored in 'documents.jsonl.gz'
+
+
+
