@@ -1,4 +1,4 @@
-# Web Page Genre Classification at WOWS 2024
+# Team TU-Dresden-01 at WOWS 2024: Web Page Genre Classification 
 
 This repository contains genre classifiers submitted as retrieval component to the [Workshop on Open Web Search (WOWS) 2024](https://opensearchfoundation.org/en/events-osf/wows2024/).
 
