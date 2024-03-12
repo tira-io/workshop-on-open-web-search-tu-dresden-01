@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     # test the model on the labeled test data from zenodo dataset
     # this is only to see the metric if the model (accuracy, precision, recall)
-    res = run_mlp_test_data()
+    #res = run_mlp_test_data()
 
     # Document processors persist their results in a file documents.jsonl.gz in the output directory.
     output_file = Path(output_dir) / 'documents.jsonl.gz'
