@@ -23,7 +23,7 @@ if __name__ == '__main__':
     output_dir = get_output_directory('.')
 
     # run the snorkel rules 
-    res = run_snorkel_rules(dataset, args)
+    #res = run_snorkel_rules(dataset, args)
 
     # use the mlp classifier
     # run mlp on input dataset

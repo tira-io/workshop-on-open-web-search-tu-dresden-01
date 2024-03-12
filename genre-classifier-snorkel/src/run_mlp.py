@@ -48,9 +48,14 @@ def classify(data, modelname='mlp', language='english', text_col='text', text_ty
     prob_prediction = mlp_classifier.predict_proba(v_data)
     
     data['predicted_label'] = predicted_label
+    probabilities = {'probability_'+ label_name: [] for label_name in label_names.values() if label_name != 'Abstain'}
+
     for i in prob_prediction:
         for j in range(len(i)):
-            data['probability_'+label_names[j]] = i[j]
+            probabilities['probability_'+label_names[j]] += [i[j]]
+
+    for k, v in probabilities.items():
+        data[k] = v
 
     return data
 
